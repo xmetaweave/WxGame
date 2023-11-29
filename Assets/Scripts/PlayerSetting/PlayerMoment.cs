@@ -1,3 +1,4 @@
+using System;
 using UnityEngine;
 
 namespace PlayerSetting
@@ -11,6 +12,7 @@ namespace PlayerSetting
         
         Vector2 moveDir = Vector2.zero;
         private PlayerAnimatorHash _playerAnimatorHash;
+        private bool _isGround = false;
         private void Awake()
         {
             _animator = GetComponent<Animator>();
@@ -28,9 +30,13 @@ namespace PlayerSetting
     
         private void Update()
         {
-          
+            if (CheckIsGround() !=_isGround)
+            {
+                _isGround = !_isGround;
+                _animator.SetBool(_playerAnimatorHash.boolFall,!_isGround);
+            }
             
-           
+            
         }
     
         #region footAudioPlay
@@ -59,13 +65,34 @@ namespace PlayerSetting
             moveDir = Vector2.zero;
             Time.timeScale = 0;
         }
-    
+
+
+        #region CheckIsGround
+        Collider[] hits = new Collider[5];
+        [SerializeField]
+        private LayerMask groundLayer = 1;
+        private bool CheckIsGround()
+        {
+            //脚下射线检测
+            int hitCount = Physics.OverlapSphereNonAlloc(transform.position, 0.5f , hits);
+            
+            return hitCount > 0;
+        }
+
+        private void OnDrawGizmos()
+        {
+            Gizmos.color = Color.red;
+            Gizmos.DrawWireSphere(transform.position, 0.5f);
+        }
+
+        #endregion
+        
         private void OnAnimatorMove()
         {
             if (moveDir != Vector2.zero)
             {
                 var v3 = new Vector3(moveDir.x, 0, moveDir.y);
-                transform.position += v3 * speed * Time.deltaTime;
+                transform.Translate(v3* speed * Time.deltaTime,Space.World);
                 
                 //优化下面一行代码  
                 Quaternion angel = Quaternion.LookRotation(v3);//获取旋转角度
