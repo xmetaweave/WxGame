@@ -34,6 +34,7 @@ namespace VirtualJoystick
 
         public void OnPointerDown(PointerEventData eventData)
         {
+            print("OnPointerDown");
             if (!_hasInited)
             {
                 Init();
@@ -82,8 +83,6 @@ namespace VirtualJoystick
             {
                 Vector2 dir = (handlePos - bgPos)/ _virtualJoystickAppearance._handleAndBgMaxDistance;
                 SetDirEvent?.Invoke(dir);
-
-                Debug.Log("SetDir " + dir);
             }
             else
             {
