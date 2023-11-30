@@ -34,7 +34,6 @@ namespace VirtualJoystick
 
         public void OnPointerDown(PointerEventData eventData)
         {
-            print("OnPointerDown");
             if (!_hasInited)
             {
                 Init();
