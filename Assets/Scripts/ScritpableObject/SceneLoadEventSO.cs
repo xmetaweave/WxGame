@@ -7,6 +7,7 @@ namespace ScritpableObject
     public class SceneLoadEventSO : ScriptableObject
     {
         public UnityAction<GameSceneSO,bool> SceneLoadRequestEvent;
+        public UnityAction<GameSceneSO> SceneLoadDoneEvent;
         
         /// <summary>
         /// 场景加载请求
@@ -17,6 +18,12 @@ namespace ScritpableObject
         {
             SceneLoadRequestEvent?.Invoke(gameSceneSO,fadeScreen);
         }
+        
+        public void RasingSceneLoadDoneEvent(GameSceneSO gameSceneSO)
+        {
+            SceneLoadDoneEvent?.Invoke(gameSceneSO);
+        }
        
+        
     }
 }
