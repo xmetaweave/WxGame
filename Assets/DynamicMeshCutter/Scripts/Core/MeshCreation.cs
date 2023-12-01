@@ -486,10 +486,11 @@ namespace DynamicMeshCutter
 
             return rootbone;
         }
-        public static void TranslateCreatedObjects(Info info, GameObject[] createdObjects, MeshTarget[] targets, float separation)
+        public static List<GameObject> TranslateCreatedObjects(Info info, GameObject[] createdObjects, MeshTarget[] targets, float separation)
         {
+            List<GameObject> translatedObjects = new List<GameObject>();
             if (createdObjects == null)
-                return;
+                return translatedObjects;
 
             VirtualPlane plane = info.Plane;
 
@@ -508,7 +509,9 @@ namespace DynamicMeshCutter
 
                 Vector3 translation = sign * plane.WorldNormal.normalized * separation;
                 createdObject.transform.position += translation;
+                translatedObjects.Add(createdObject);
             }
+            return translatedObjects;
         }
 
         public static Material[] GetMaterials(GameObject target)
