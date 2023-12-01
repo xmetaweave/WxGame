@@ -14,3 +14,5 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   fadeEventSo: {fileID: 11400000, guid: 94588378d9a7f85429c0be9ded947a20, type: 2}
   sceneLoadEventSo: {fileID: 11400000, guid: ff2312740b61e8a45aef41a007e4df59, type: 2}
+  gameStartEventSo: {fileID: 11400000, guid: 57cb9288898e67842bceb411dd0b52c3, type: 2}
+  playerDeadEventSo: {fileID: 11400000, guid: baa7611dec8adca478b825431c7177bb, type: 2}

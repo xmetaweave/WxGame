@@ -13,7 +13,9 @@ namespace Global
         {
             if (GUI.Button(new Rect(10, 10, 100, 100), "Load"))
             {
+                Time.timeScale = 1;
                 sceneLoader.LoadToNextScene();
+               
             }
             
         }

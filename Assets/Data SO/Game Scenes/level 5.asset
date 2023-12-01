@@ -10,12 +10,14 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 02555a3f91b14179b6e573a4fc6f29b8, type: 3}
-  m_Name: Main
+  m_Name: level 5
   m_EditorClassIdentifier: 
   sceneAssetReference:
-    m_AssetGUID: 2cda990e2423bbf4892e6590ba056729
+    m_AssetGUID: 3e662e5f515f52d45a9dbf15730fb018
     m_SubObjectName: 
     m_SubObjectType: 
     m_EditorAssetChanged: 0
   sceneType: 0
-  startPosition: {x: 0, y: 0.66, z: 0}
+  startPosition: {x: 19.686495, y: 16.482, z: 23.176235}
+  startRotation: {x: 0, y: 0, z: 0}
+  fogMaterial: {fileID: 2100000, guid: e3f1e0a1f3a4c2c43a42a60ddd9a9836, type: 2}

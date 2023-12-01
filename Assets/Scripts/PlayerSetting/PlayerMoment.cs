@@ -1,5 +1,10 @@
 using System;
+using Global;
+using ScritpableObject;
+using Unity.VisualScripting;
 using UnityEngine;
+using Util;
+using VContainer;
 
 namespace PlayerSetting
 {
@@ -13,6 +18,47 @@ namespace PlayerSetting
         Vector2 moveDir = Vector2.zero;
         private PlayerAnimatorHash _playerAnimatorHash;
         private bool _isGround = false;
+
+        public float deadHight = -10f;
+
+        private PlayerState _playerState = PlayerState.IDLE;
+        public PlayerState playerState
+        {
+            get =>_playerState;
+            private set
+            {
+                _playerState = value;
+                switch (_playerState)
+                {
+                    case PlayerState.IDLE:
+                        _animator.SetLayerWeight(1,1);
+                        _animator.SetBool(_playerAnimatorHash.boolMove,false);
+                        break;
+                    case PlayerState.RUN:
+                        _animator.SetLayerWeight(1,1);
+                        _animator.SetBool(_playerAnimatorHash.boolMove,true);
+                        break;
+                    case PlayerState.DEAD:
+                        _animator.SetLayerWeight(1,0);
+                        _animator.SetTrigger(_playerAnimatorHash.triggerDeath);
+                        break;
+                    case PlayerState.FALL:
+                        _animator.SetLayerWeight(1,0);
+                        _animator.SetBool(_playerAnimatorHash.boolFall,true);
+                        break;
+                        default:
+                            print("PlayerState Error");
+                        break;
+                }
+            }
+        }
+
+        [Inject]
+        EventOSContainer eventOsContainer;
+        [Inject]
+        GameManager gameManager;
+        [Inject]
+        SceneLoader sceneLoader;
         private void Awake()
         {
             _animator = GetComponent<Animator>();
@@ -30,16 +76,24 @@ namespace PlayerSetting
     
         private void Update()
         {
-            if (CheckIsGround() !=_isGround)
+            if (playerState == PlayerState.DEAD)
+                return;
+
+            CheckIsGround();
+
+            if (!_isGround)
             {
-                _isGround = !_isGround;
-                _animator.SetBool(_playerAnimatorHash.boolFall,!_isGround);
+                //如果不在地面上，死亡倒计时
+                if (playerState != PlayerState.DEAD && transform.position.y < deadHight)
+                {
+                    PlayerDeath();
+                }
+               
             }
-            
             
         }
     
-        #region footAudioPlay
+        #region AudioPlay
         public void FootR()
         {
             //print("FootR");
@@ -48,22 +102,58 @@ namespace PlayerSetting
         {
             //print("FootR");
         }
+        
+        public void Land()
+        {
+            //print("Land");
+        }
         #endregion
         
     
         private void MoveDirection(Vector2 dir)
         {
+            if (playerState== PlayerState.DEAD)
+                return;
+            
             moveDir = dir;
             //依据玩家输入指令幅度 控制游戏速度
             Time.timeScale = moveDir.magnitude;
-            
-            _animator.SetBool(_playerAnimatorHash.boolMove,true);
+            _animator.updateMode = AnimatorUpdateMode.Normal;
+            SetPlayerState(PlayerState.RUN);
+            if (gameManager.gameState != GameState.PLAYING)
+            {
+                eventOsContainer.gameStartEventSo?.RaiseEvent();
+            }
+           
         }
     
         private void StopSetDirEvent()
         {
+            if (playerState == PlayerState.DEAD)
+                return;
+      
             moveDir = Vector2.zero;
-            Time.timeScale = 0;
+            if (!sceneLoader.isLoading && _isGround)
+            { 
+                Time.timeScale = 0f;
+                _animator.updateMode = AnimatorUpdateMode.UnscaledTime;
+                SetPlayerState(PlayerState.IDLE);
+            }
+            
+        }
+        
+        private void PlayerDeath()
+        {
+            if (playerState == PlayerState.DEAD)
+                return;
+            
+            
+            _animator.SetLayerWeight(1,0);
+            Time.timeScale = 1f;
+            SetPlayerState(PlayerState.DEAD);
+            eventOsContainer.playerDeadEventSo?.RaiseEvent();
+            GetComponent<Rigidbody>().isKinematic = true;
+            
         }
 
 
@@ -71,12 +161,20 @@ namespace PlayerSetting
         Collider[] hits = new Collider[5];
         [SerializeField]
         private LayerMask groundLayer = 1;
-        private bool CheckIsGround()
+        private void CheckIsGround()
         {
             //脚下射线检测
             int hitCount = Physics.OverlapSphereNonAlloc(transform.position, 0.5f , hits);
             
-            return hitCount > 0;
+            bool ground = hitCount > 1;
+       
+            if (ground !=_isGround)
+            {
+                _isGround = ground;
+                _animator.SetBool(_playerAnimatorHash.boolFall,!_isGround);
+                SetPlayerState(_isGround? PlayerState.IDLE : PlayerState.FALL);
+                
+            }
         }
 
         private void OnDrawGizmos()
@@ -98,6 +196,15 @@ namespace PlayerSetting
                 Quaternion angel = Quaternion.LookRotation(v3);//获取旋转角度
                 transform.rotation = Quaternion.Slerp(this.transform.rotation, angel, speed * Time.deltaTime);
             }
+        }
+        
+        public void SetPlayerState(PlayerState playerState)
+        {
+            if (playerState != PlayerState.NONE && this.playerState != playerState)
+            {
+                this.playerState = playerState;
+            }
+           
         }
         
         struct PlayerAnimatorHash

@@ -2,6 +2,7 @@
 using UnityEngine.AddressableAssets;
 using Util;
 
+
 namespace ScritpableObject
 {
     [CreateAssetMenu(menuName = "Game scene/GameSceneSO", order = 0)]
@@ -10,5 +11,7 @@ namespace ScritpableObject
         public AssetReference sceneAssetReference;
         public SceneType sceneType;
         public Vector3 startPosition;
+        public Vector3 startRotation;
+        public Material fogMaterial;
     }
 }

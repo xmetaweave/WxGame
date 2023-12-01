@@ -30,8 +30,7 @@ namespace UI
             {
                 if (!fadeIn)
                 {
-                    fadeImage.gameObject.SetActive(false); 
-                  
+                    fadeImage.gameObject.SetActive(false);
                 }
             };
         }

@@ -22,9 +22,12 @@ namespace Global
         private GameSceneSO sceneToLoad;
         private bool fadeScreen;
         private int curIndex = -1;
-        private bool isLoading = false; //是否正在加载中
+        [HideInInspector]
+        public bool isLoading = false; //是否正在加载中
         [Inject]
         EventOSContainer eventOSContainer;
+        [Inject]
+        GameManager gameManager;
         private void Awake()
         {
             OnLoadScene(FirstScene);
@@ -77,7 +80,7 @@ namespace Global
           
             yield return currentLoadScene.sceneAssetReference.UnLoadScene();
             
-            GameManager.Instance().player.gameObject.SetActive(false);
+            gameManager.player.gameObject.SetActive(false);
             LoadNewScene();
         }
         
@@ -92,15 +95,15 @@ namespace Global
             if (obj.Status == AsyncOperationStatus.Succeeded)
             {
                 currentLoadScene = sceneToLoad;
-                GameManager.Instance().player.position = currentLoadScene.startPosition;
-                GameManager.Instance().player.gameObject.SetActive(true);
+                
                 if (fadeScreen)
                 {
-                    GameManager.Instance().eventOSContainer.fadeEventSo.FadeOut(fadeDuration);
+                    eventOSContainer.fadeEventSo.FadeOut(fadeDuration);
                 }
                 isLoading = false;
         
                 SceneManager.SetActiveScene(obj.Result.Scene);
+                eventOSContainer.sceneLoadEventSo.SceneLoadDoneEvent?.Invoke(currentLoadScene);
             }
         }
         

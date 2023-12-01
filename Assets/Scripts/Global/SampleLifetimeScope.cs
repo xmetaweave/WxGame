@@ -12,11 +12,14 @@ namespace Global
         private EventOSContainer eventOSContainer;
         [SerializeField]
         private SceneLoader sceneLoader;
+        [SerializeField]
+        private GameManager gameManager;
 
         protected override void Configure(IContainerBuilder builder)
         {
             builder.RegisterInstance(eventOSContainer);
             builder.RegisterComponent(sceneLoader);
+            builder.RegisterComponent(gameManager);
         }
     }
 }

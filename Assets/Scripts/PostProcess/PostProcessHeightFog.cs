@@ -3,7 +3,7 @@ using UnityEngine;
 public class PostProcessHeightFog : MonoBehaviour
 {
     [SerializeField] private Camera camera;
-    [SerializeField] private Material material;
+    public Material material;
 
     private void Start()
     {

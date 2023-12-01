@@ -17,7 +17,7 @@ namespace CameraSetting
         }
 
         // Update is called once per frame
-        void Update () {
+        void LateUpdate () {
             pos = target.position + offset;
             this.transform.position = Vector3.Lerp(this.transform.position, pos, speed*Time.deltaTime);//调整相机与玩家之间的距离
             Quaternion angel = Quaternion.LookRotation(target.position - transform.position);//获取旋转角度
