@@ -1,0 +1,212 @@
+fileFormatVersion: 2
+guid: c42a98e63da98dd459e2d95e0214c5d1
+timeCreated: 1605792717
+licenseType: Store
+ModelImporter:
+  serializedVersion: 19
+  fileIDToRecycleName:
+    100000: Bone.Arm.L
+    100002: Bone.Arm.R
+    100004: Bone.Chest
+    100006: Bone.Finger0.L
+    100008: Bone.Finger0.R
+    100010: Bone.Finger01.L
+    100012: Bone.Finger01.L_end
+    100014: Bone.Finger01.R
+    100016: Bone.Finger01.R_end
+    100018: Bone.Finger1.L
+    100020: Bone.Finger1.R
+    100022: Bone.Finger11.L
+    100024: Bone.Finger11.L_end
+    100026: Bone.Finger11.R
+    100028: Bone.Finger11.R_end
+    100030: Bone.Foot.L
+    100032: Bone.Foot.R
+    100034: Bone.Hair.01
+    100036: Bone.Hair.02
+    100038: Bone.Hair.03
+    100040: Bone.Hair.03_end
+    100042: Bone.Hand.L
+    100044: Bone.Hand.R
+    100046: Bone.Head
+    100048: Bone.Leg.L
+    100050: Bone.Leg.R
+    100052: Bone.LegArmor.Bk.0
+    100054: Bone.LegArmor.Bk.1
+    100056: Bone.LegArmor.Bk.1_end
+    100058: Bone.LegArmor.F.0
+    100060: Bone.LegArmor.F.1
+    100062: Bone.LegArmor.F.1_end
+    100064: Bone.LegArmor.L
+    100066: Bone.LegArmor.L_end
+    100068: Bone.LegArmor.R
+    100070: Bone.LegArmor.R_end
+    100072: Bone.Neck
+    100074: Bone.Pelvis
+    100076: Bone.Root
+    100078: Bone.Shoulder.L
+    100080: Bone.Shoulder.R
+    100082: Bone.Toe0.L
+    100084: Bone.Toe0.L_end
+    100086: Bone.Toe0.R
+    100088: Bone.Toe0.R_end
+    100090: Bone.UArm.L
+    100092: Bone.UArm.R
+    100094: Bone.ULeg.L
+    100096: Bone.ULeg.R
+    100098: Bone.Waist
+    100100: Bone.Weapon.Point
+    100102: Equip.Flag
+    100104: Equip.Flag_end
+    100106: Equip.Weapon.Back
+    100108: Equip.Weapon.Back_end
+    100110: Equip.Weapon.Hand.L
+    100112: Equip.Weapon.Hand.L_end
+    100114: Equip.Weapon.Hand.R
+    100116: Equip.Weapon.Hand.R.Handle
+    100118: Equip.Weapon.Hand.R_end
+    100120: Equip.Weapon.Point.L
+    100122: Equip.Weapon.Point.L_end
+    100124: Equip.Weapon.Point.R
+    100126: Equip.Weapon.Point.R_end
+    100128: //RootNode
+    100130: Sanada-Yukimura
+    400000: Bone.Arm.L
+    400002: Bone.Arm.R
+    400004: Bone.Chest
+    400006: Bone.Finger0.L
+    400008: Bone.Finger0.R
+    400010: Bone.Finger01.L
+    400012: Bone.Finger01.L_end
+    400014: Bone.Finger01.R
+    400016: Bone.Finger01.R_end
+    400018: Bone.Finger1.L
+    400020: Bone.Finger1.R
+    400022: Bone.Finger11.L
+    400024: Bone.Finger11.L_end
+    400026: Bone.Finger11.R
+    400028: Bone.Finger11.R_end
+    400030: Bone.Foot.L
+    400032: Bone.Foot.R
+    400034: Bone.Hair.01
+    400036: Bone.Hair.02
+    400038: Bone.Hair.03
+    400040: Bone.Hair.03_end
+    400042: Bone.Hand.L
+    400044: Bone.Hand.R
+    400046: Bone.Head
+    400048: Bone.Leg.L
+    400050: Bone.Leg.R
+    400052: Bone.LegArmor.Bk.0
+    400054: Bone.LegArmor.Bk.1
+    400056: Bone.LegArmor.Bk.1_end
+    400058: Bone.LegArmor.F.0
+    400060: Bone.LegArmor.F.1
+    400062: Bone.LegArmor.F.1_end
+    400064: Bone.LegArmor.L
+    400066: Bone.LegArmor.L_end
+    400068: Bone.LegArmor.R
+    400070: Bone.LegArmor.R_end
+    400072: Bone.Neck
+    400074: Bone.Pelvis
+    400076: Bone.Root
+    400078: Bone.Shoulder.L
+    400080: Bone.Shoulder.R
+    400082: Bone.Toe0.L
+    400084: Bone.Toe0.L_end
+    400086: Bone.Toe0.R
+    400088: Bone.Toe0.R_end
+    400090: Bone.UArm.L
+    400092: Bone.UArm.R
+    400094: Bone.ULeg.L
+    400096: Bone.ULeg.R
+    400098: Bone.Waist
+    400100: Bone.Weapon.Point
+    400102: Equip.Flag
+    400104: Equip.Flag_end
+    400106: Equip.Weapon.Back
+    400108: Equip.Weapon.Back_end
+    400110: Equip.Weapon.Hand.L
+    400112: Equip.Weapon.Hand.L_end
+    400114: Equip.Weapon.Hand.R
+    400116: Equip.Weapon.Hand.R.Handle
+    400118: Equip.Weapon.Hand.R_end
+    400120: Equip.Weapon.Point.L
+    400122: Equip.Weapon.Point.L_end
+    400124: Equip.Weapon.Point.R
+    400126: Equip.Weapon.Point.R_end
+    400128: Sanada-Yukimura
+    400130: //RootNode
+    4300000: Sanada-Yukimura
+    9500000: //RootNode
+    13700000: Sanada-Yukimura
+  materials:
+    importMaterials: 1
+    materialName: 0
+    materialSearch: 1
+  animations:
+    legacyGenerateAnimations: 4
+    bakeSimulation: 0
+    resampleCurves: 1
+    optimizeGameObjects: 0
+    motionNodeName: 
+    rigImportErrors: 
+    rigImportWarnings: 
+    animationImportErrors: 
+    animationImportWarnings: 
+    animationRetargetingWarnings: 
+    animationDoRetargetingWarnings: 0
+    animationCompression: 1
+    animationRotationError: 0.5
+    animationPositionError: 0.5
+    animationScaleError: 0.5
+    animationWrapMode: 0
+    extraExposedTransformPaths: []
+    clipAnimations: []
+    isReadable: 1
+  meshes:
+    lODScreenPercentages: []
+    globalScale: 1
+    meshCompression: 0
+    addColliders: 0
+    importBlendShapes: 1
+    swapUVChannels: 0
+    generateSecondaryUV: 0
+    useFileUnits: 1
+    optimizeMeshForGPU: 1
+    keepQuads: 0
+    weldVertices: 1
+    secondaryUVAngleDistortion: 8
+    secondaryUVAreaDistortion: 15.000001
+    secondaryUVHardAngle: 88
+    secondaryUVPackMargin: 4
+    useFileScale: 1
+  tangentSpace:
+    normalSmoothAngle: 60
+    normalImportMode: 0
+    tangentImportMode: 3
+  importAnimation: 1
+  copyAvatar: 0
+  humanDescription:
+    serializedVersion: 2
+    human: []
+    skeleton: []
+    armTwist: 0.5
+    foreArmTwist: 0.5
+    upperLegTwist: 0.5
+    legTwist: 0.5
+    armStretch: 0.05
+    legStretch: 0.05
+    feetSpacing: 0
+    rootMotionBoneName: 
+    rootMotionBoneRotation: {x: 0, y: 0, z: 0, w: 1}
+    hasTranslationDoF: 0
+    hasExtraRoot: 0
+    skeletonHasParents: 1
+  lastHumanDescriptionAvatarSource: {instanceID: 0}
+  animationType: 2
+  humanoidOversampling: 1
+  additionalBone: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

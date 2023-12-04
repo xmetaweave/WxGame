@@ -160,12 +160,14 @@ namespace PlayerSetting
                 return;
       
             moveDir = Vector2.zero;
-            if (_isGround)
-            { 
-                Time.timeScale = 0f;
-                _animator.updateMode = AnimatorUpdateMode.UnscaledTime;
-                SetPlayerState(PlayerState.IDLE);
-            }
+            
+            Time.timeScale = 0f;
+            // if (_isGround)
+            // { 
+                
+            //     _animator.updateMode = AnimatorUpdateMode.UnscaledTime;
+            //     SetPlayerState(PlayerState.IDLE);
+            // }
             
         }
         

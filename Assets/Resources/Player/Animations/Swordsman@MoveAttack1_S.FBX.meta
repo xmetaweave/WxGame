@@ -522,8 +522,8 @@ ModelImporter:
       name: MoveAttack1
       takeName: Take 001
       internalID: 7400000
-      firstFrame: 14
-      lastFrame: 17.5
+      firstFrame: 14.3
+      lastFrame: 14.9
       wrapMode: 0
       orientationOffsetY: 0
       level: 0

@@ -23,6 +23,25 @@ namespace Global
             fadeCanvas.Init(eventOsContainer);
             
             finishCanvas.gameObject.SetActive(false);
+            
+            eventOsContainer.reachTargetEventOS.OnEventRaised += OnReachTarget;
+            eventOsContainer.playerDeadEventSo.OnEventRaised += OnPlayerDead;
+        }
+        
+        private void OnDisable()
+        {
+            eventOsContainer.reachTargetEventOS.OnEventRaised -= OnReachTarget;
+            eventOsContainer.playerDeadEventSo.OnEventRaised -= OnPlayerDead;
+        }
+        
+        private void OnReachTarget()
+        {
+            finishCanvas.gameObject.SetActive(true);
+        }
+        
+        private void OnPlayerDead()
+        {
+            finishCanvas.gameObject.SetActive(true);
         }
     }
 }

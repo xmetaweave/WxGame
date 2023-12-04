@@ -1,0 +1,212 @@
+fileFormatVersion: 2
+guid: 32f322fd6252f9a41ae2fb5ca27f1f21
+timeCreated: 1605792713
+licenseType: Store
+ModelImporter:
+  serializedVersion: 19
+  fileIDToRecycleName:
+    100000: //RootNode
+    100002: Akechi-Mitsuhide
+    100004: Bone.Arm.L
+    100006: Bone.Arm.R
+    100008: Bone.Chest
+    100010: Bone.Finger0.L
+    100012: Bone.Finger0.R
+    100014: Bone.Finger01.L
+    100016: Bone.Finger01.L_end
+    100018: Bone.Finger01.R
+    100020: Bone.Finger01.R_end
+    100022: Bone.Finger1.L
+    100024: Bone.Finger1.R
+    100026: Bone.Finger11.L
+    100028: Bone.Finger11.L_end
+    100030: Bone.Finger11.R
+    100032: Bone.Finger11.R_end
+    100034: Bone.Foot.L
+    100036: Bone.Foot.R
+    100038: Bone.Hair.01
+    100040: Bone.Hair.02
+    100042: Bone.Hair.03
+    100044: Bone.Hair.03_end
+    100046: Bone.Hand.L
+    100048: Bone.Hand.R
+    100050: Bone.Head
+    100052: Bone.Leg.L
+    100054: Bone.Leg.R
+    100056: Bone.LegArmor.Bk.0
+    100058: Bone.LegArmor.Bk.1
+    100060: Bone.LegArmor.Bk.1_end
+    100062: Bone.LegArmor.F.0
+    100064: Bone.LegArmor.F.1
+    100066: Bone.LegArmor.F.1_end
+    100068: Bone.LegArmor.L
+    100070: Bone.LegArmor.L_end
+    100072: Bone.LegArmor.R
+    100074: Bone.LegArmor.R_end
+    100076: Bone.Neck
+    100078: Bone.Pelvis
+    100080: Bone.Root
+    100082: Bone.Shoulder.L
+    100084: Bone.Shoulder.R
+    100086: Bone.Toe0.L
+    100088: Bone.Toe0.L_end
+    100090: Bone.Toe0.R
+    100092: Bone.Toe0.R_end
+    100094: Bone.UArm.L
+    100096: Bone.UArm.R
+    100098: Bone.ULeg.L
+    100100: Bone.ULeg.R
+    100102: Bone.Waist
+    100104: Bone.Weapon.Point
+    100106: Equip.Flag
+    100108: Equip.Flag_end
+    100110: Equip.Weapon.Back
+    100112: Equip.Weapon.Back_end
+    100114: Equip.Weapon.Hand.L
+    100116: Equip.Weapon.Hand.L_end
+    100118: Equip.Weapon.Hand.R
+    100120: Equip.Weapon.Hand.R.Handle
+    100122: Equip.Weapon.Hand.R_end
+    100124: Equip.Weapon.Point.L
+    100126: Equip.Weapon.Point.L_end
+    100128: Equip.Weapon.Point.R
+    100130: Equip.Weapon.Point.R_end
+    400000: //RootNode
+    400002: Akechi-Mitsuhide
+    400004: Bone.Arm.L
+    400006: Bone.Arm.R
+    400008: Bone.Chest
+    400010: Bone.Finger0.L
+    400012: Bone.Finger0.R
+    400014: Bone.Finger01.L
+    400016: Bone.Finger01.L_end
+    400018: Bone.Finger01.R
+    400020: Bone.Finger01.R_end
+    400022: Bone.Finger1.L
+    400024: Bone.Finger1.R
+    400026: Bone.Finger11.L
+    400028: Bone.Finger11.L_end
+    400030: Bone.Finger11.R
+    400032: Bone.Finger11.R_end
+    400034: Bone.Foot.L
+    400036: Bone.Foot.R
+    400038: Bone.Hair.01
+    400040: Bone.Hair.02
+    400042: Bone.Hair.03
+    400044: Bone.Hair.03_end
+    400046: Bone.Hand.L
+    400048: Bone.Hand.R
+    400050: Bone.Head
+    400052: Bone.Leg.L
+    400054: Bone.Leg.R
+    400056: Bone.LegArmor.Bk.0
+    400058: Bone.LegArmor.Bk.1
+    400060: Bone.LegArmor.Bk.1_end
+    400062: Bone.LegArmor.F.0
+    400064: Bone.LegArmor.F.1
+    400066: Bone.LegArmor.F.1_end
+    400068: Bone.LegArmor.L
+    400070: Bone.LegArmor.L_end
+    400072: Bone.LegArmor.R
+    400074: Bone.LegArmor.R_end
+    400076: Bone.Neck
+    400078: Bone.Pelvis
+    400080: Bone.Root
+    400082: Bone.Shoulder.L
+    400084: Bone.Shoulder.R
+    400086: Bone.Toe0.L
+    400088: Bone.Toe0.L_end
+    400090: Bone.Toe0.R
+    400092: Bone.Toe0.R_end
+    400094: Bone.UArm.L
+    400096: Bone.UArm.R
+    400098: Bone.ULeg.L
+    400100: Bone.ULeg.R
+    400102: Bone.Waist
+    400104: Bone.Weapon.Point
+    400106: Equip.Flag
+    400108: Equip.Flag_end
+    400110: Equip.Weapon.Back
+    400112: Equip.Weapon.Back_end
+    400114: Equip.Weapon.Hand.L
+    400116: Equip.Weapon.Hand.L_end
+    400118: Equip.Weapon.Hand.R
+    400120: Equip.Weapon.Hand.R.Handle
+    400122: Equip.Weapon.Hand.R_end
+    400124: Equip.Weapon.Point.L
+    400126: Equip.Weapon.Point.L_end
+    400128: Equip.Weapon.Point.R
+    400130: Equip.Weapon.Point.R_end
+    4300000: Akechi-Mitsuhide
+    9500000: //RootNode
+    13700000: Akechi-Mitsuhide
+  materials:
+    importMaterials: 1
+    materialName: 0
+    materialSearch: 1
+  animations:
+    legacyGenerateAnimations: 4
+    bakeSimulation: 0
+    resampleCurves: 1
+    optimizeGameObjects: 0
+    motionNodeName: 
+    rigImportErrors: 
+    rigImportWarnings: 
+    animationImportErrors: 
+    animationImportWarnings: 
+    animationRetargetingWarnings: 
+    animationDoRetargetingWarnings: 0
+    animationCompression: 1
+    animationRotationError: 0.5
+    animationPositionError: 0.5
+    animationScaleError: 0.5
+    animationWrapMode: 0
+    extraExposedTransformPaths: []
+    clipAnimations: []
+    isReadable: 1
+  meshes:
+    lODScreenPercentages: []
+    globalScale: 1
+    meshCompression: 0
+    addColliders: 0
+    importBlendShapes: 1
+    swapUVChannels: 0
+    generateSecondaryUV: 0
+    useFileUnits: 1
+    optimizeMeshForGPU: 1
+    keepQuads: 0
+    weldVertices: 1
+    secondaryUVAngleDistortion: 8
+    secondaryUVAreaDistortion: 15.000001
+    secondaryUVHardAngle: 88
+    secondaryUVPackMargin: 4
+    useFileScale: 1
+  tangentSpace:
+    normalSmoothAngle: 60
+    normalImportMode: 0
+    tangentImportMode: 3
+  importAnimation: 1
+  copyAvatar: 0
+  humanDescription:
+    serializedVersion: 2
+    human: []
+    skeleton: []
+    armTwist: 0.5
+    foreArmTwist: 0.5
+    upperLegTwist: 0.5
+    legTwist: 0.5
+    armStretch: 0.05
+    legStretch: 0.05
+    feetSpacing: 0
+    rootMotionBoneName: 
+    rootMotionBoneRotation: {x: 0, y: 0, z: 0, w: 1}
+    hasTranslationDoF: 0
+    hasExtraRoot: 0
+    skeletonHasParents: 1
+  lastHumanDescriptionAvatarSource: {instanceID: 0}
+  animationType: 2
+  humanoidOversampling: 1
+  additionalBone: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

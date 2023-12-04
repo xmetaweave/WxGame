@@ -33,6 +33,8 @@ namespace Global
         {
             eventOSContainer.sceneLoadEventSo.SceneLoadRequestEvent += OnLoadScene;
             eventOSContainer.sceneLoadEventSo.CurrentSceneLoadEvent += LoadToCurrentScene;
+            eventOSContainer.sceneLoadEventSo.NextSceneLoadEvent += LoadToNextScene;
+            
             
         }
         
@@ -40,7 +42,7 @@ namespace Global
         {
             eventOSContainer.sceneLoadEventSo.SceneLoadRequestEvent -= OnLoadScene;
             eventOSContainer.sceneLoadEventSo.CurrentSceneLoadEvent -= LoadToCurrentScene;
-                
+            eventOSContainer.sceneLoadEventSo.NextSceneLoadEvent -= LoadToNextScene;
         }
 
         private void Start()
@@ -126,6 +128,7 @@ namespace Global
         public void LoadToCurrentScene()
         {
             OnLoadScene(currentLoadScene);
+            print("LoadToCurrentScene");
         }
         
         public void LoadFirstScene()
