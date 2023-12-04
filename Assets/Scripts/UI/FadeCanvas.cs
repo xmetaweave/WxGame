@@ -9,13 +9,15 @@ namespace UI
 {
     public class FadeCanvas : MonoBehaviour
     {
-        public Image fadeImage;
+        [SerializeField]
+        private Image fadeImage;
+   
         
         EventOSContainer eventOsContainer;
         private void OnEnable()
         {
            // eventOsContainer.fadeEventSo.OnEventRaised += Fade;
-            fadeImage.gameObject.SetActive(false); 
+            //fadeImage.gameObject.SetActive(false); 
         }
 
         private void OnDisable()
@@ -25,15 +27,9 @@ namespace UI
 
         public void Fade(Color target,float duration,bool fadeIn)
         {
-            fadeImage.gameObject.SetActive(true); 
-            print("Fade" + target+ fadeIn);
-            fadeImage.DOBlendableColor(target, duration).onComplete += () =>
-            {
-                if (!fadeIn)
-                {
-                    fadeImage.gameObject.SetActive(false);
-                }
-            };
+            //fadeImage.gameObject.SetActive(true);
+            fadeImage.DOBlendableColor(target, duration);
+           
         }
 
 
@@ -41,7 +37,7 @@ namespace UI
         {
           this.eventOsContainer = eventOsContainer1;
           eventOsContainer.fadeEventSo.OnEventRaised += Fade;
-          fadeImage.gameObject.SetActive(false);
+          //fadeImage.gameObject.SetActive(false);
         }
     }
 }

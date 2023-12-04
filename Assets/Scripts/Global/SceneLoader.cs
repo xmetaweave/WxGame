@@ -128,7 +128,6 @@ namespace Global
         public void LoadToCurrentScene()
         {
             OnLoadScene(currentLoadScene);
-            print("LoadToCurrentScene");
         }
         
         public void LoadFirstScene()
