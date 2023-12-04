@@ -22,4 +22,13 @@
         WAIT,
         NONE,
     }
+    
+    public enum EnemyState
+    {
+        IDLE,
+        RUN,
+        ATTACK,
+        DEAD,
+        NONE,
+    }
 }
