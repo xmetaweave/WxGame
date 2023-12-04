@@ -32,12 +32,15 @@ namespace Global
         private void OnEnable()
         {
             eventOSContainer.sceneLoadEventSo.SceneLoadRequestEvent += OnLoadScene;
+            eventOSContainer.sceneLoadEventSo.CurrentSceneLoadEvent += LoadToCurrentScene;
             
         }
         
         private void OnDisable()
         {
             eventOSContainer.sceneLoadEventSo.SceneLoadRequestEvent -= OnLoadScene;
+            eventOSContainer.sceneLoadEventSo.CurrentSceneLoadEvent -= LoadToCurrentScene;
+                
         }
 
         private void Start()
@@ -52,11 +55,11 @@ namespace Global
                 Debug.LogWarning($"Trying to load scene{gameSceneSO.name} while another scene is loading");
                 return;
             }
-            if (gameSceneSO == currentLoadScene)
-            {
-                Debug.LogWarning($"Trying to load the same scene{gameSceneSO.name}");
-                return;
-            }
+            // if (gameSceneSO == currentLoadScene)
+            // {
+            //     Debug.LogWarning($"Trying to load the same scene{gameSceneSO.name}");
+            //     return;
+            // }
             isLoading = true;
             sceneToLoad = gameSceneSO;
             fadeScreen = _fadeScreen;
@@ -105,7 +108,7 @@ namespace Global
                 isLoading = false;
         
                 SceneManager.SetActiveScene(obj.Result.Scene);
-                eventOSContainer.sceneLoadEventSo.SceneLoadDoneEvent?.Invoke(currentLoadScene);
+                eventOSContainer.sceneLoadEventSo.RasingSceneLoadDoneEvent(currentLoadScene);
             }
         }
         
@@ -118,6 +121,11 @@ namespace Global
                 curIndex = 0;
             }
             OnLoadScene(GamePlayScenes[curIndex]);
+        }
+        
+        public void LoadToCurrentScene()
+        {
+            OnLoadScene(currentLoadScene);
         }
         
         public void LoadFirstScene()

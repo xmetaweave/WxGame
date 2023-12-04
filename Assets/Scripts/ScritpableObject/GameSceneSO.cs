@@ -10,8 +10,8 @@ namespace ScritpableObject
     {
         public AssetReference sceneAssetReference;
         public SceneType sceneType;
-        public Vector3 startPosition;
-        public Vector3 startRotation;
+        // public Vector3 startPosition;
+        // public Vector3 startRotation;
         public Material fogMaterial;
     }
 }

@@ -16,4 +16,4 @@ MonoBehaviour:
   sceneLoadEventSo: {fileID: 11400000, guid: ff2312740b61e8a45aef41a007e4df59, type: 2}
   gameStartEventSo: {fileID: 11400000, guid: 1ad3bbe5b35e01544ad3c5fae91c41b9, type: 2}
   playerDeadEventSo: {fileID: 11400000, guid: 42f0469a12922644b930b07ade084296, type: 2}
-  ReachTargetEventOS: {fileID: 11400000, guid: 4f67b7a3c8e6e0449ab23111c506f932, type: 2}
+  reachTargetEventOS: {fileID: 11400000, guid: 4f67b7a3c8e6e0449ab23111c506f932, type: 2}

@@ -8,7 +8,7 @@ namespace ScritpableObject
     {
         public UnityAction<GameSceneSO,bool> SceneLoadRequestEvent;
         public UnityAction<GameSceneSO> SceneLoadDoneEvent;
-        
+        public UnityAction CurrentSceneLoadEvent;
         /// <summary>
         /// 场景加载请求
         /// </summary>
@@ -22,6 +22,11 @@ namespace ScritpableObject
         public void RasingSceneLoadDoneEvent(GameSceneSO gameSceneSO)
         {
             SceneLoadDoneEvent?.Invoke(gameSceneSO);
+        }
+        
+        public void RasingCurrentSceneLoadEvent()
+        {
+            CurrentSceneLoadEvent?.Invoke();
         }
        
         

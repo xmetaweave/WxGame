@@ -22,6 +22,8 @@ namespace PlayerSetting
         public float deadHight = -10f;
 
         private PlayerState _playerState = PlayerState.IDLE;
+        
+        
         public PlayerState playerState
         {
             get =>_playerState;
@@ -39,12 +41,17 @@ namespace PlayerSetting
                         _animator.SetBool(_playerAnimatorHash.boolMove,true);
                         break;
                     case PlayerState.DEAD:
+                        moveDir = Vector2.zero;
                         _animator.SetLayerWeight(1,0);
                         _animator.SetTrigger(_playerAnimatorHash.triggerDeath);
                         break;
                     case PlayerState.FALL:
                         _animator.SetLayerWeight(1,0);
                         _animator.SetBool(_playerAnimatorHash.boolFall,true);
+                        break;
+                    case PlayerState.WAIT:
+                        moveDir = Vector3.zero;
+                        print("PlayerState Wait");
                         break;
                         default:
                             print("PlayerState Error");
@@ -80,6 +87,10 @@ namespace PlayerSetting
             _virtualJoystick.StopSetDirEvent += StopSetDirEvent;
             eventOsContainer.sceneLoadEventSo.SceneLoadRequestEvent += SetPlayerToWait;
             eventOsContainer.sceneLoadEventSo.SceneLoadDoneEvent += SetPlayerToPlay;
+            
+            //Init
+            GetComponent<Rigidbody>().isKinematic = false;
+            playerState = PlayerState.IDLE;
         }
         
         private void OnDisable()
@@ -128,7 +139,7 @@ namespace PlayerSetting
     
         private void MoveDirection(Vector2 dir)
         {
-            if (playerState== PlayerState.DEAD)
+            if (playerState== PlayerState.DEAD || playerState == PlayerState.WAIT)
                 return;
             
             moveDir = dir;
@@ -145,11 +156,11 @@ namespace PlayerSetting
     
         private void StopSetDirEvent()
         {
-            if (playerState == PlayerState.DEAD)
+            if (playerState== PlayerState.DEAD || playerState == PlayerState.WAIT)
                 return;
       
             moveDir = Vector2.zero;
-            if (_isGround )
+            if (_isGround)
             { 
                 Time.timeScale = 0f;
                 _animator.updateMode = AnimatorUpdateMode.UnscaledTime;
@@ -171,6 +182,7 @@ namespace PlayerSetting
             GetComponent<Rigidbody>().isKinematic = true;
             
         }
+        
 
 
         #region CheckIsGround
@@ -180,7 +192,7 @@ namespace PlayerSetting
         private void CheckIsGround()
         {
             //脚下射线检测
-            int hitCount = Physics.OverlapSphereNonAlloc(transform.position, 0.5f , hits);
+            int hitCount = Physics.OverlapSphereNonAlloc(transform.position, 0.3f , hits);
             
             bool ground = hitCount > 1;
        
@@ -196,7 +208,7 @@ namespace PlayerSetting
         private void OnDrawGizmos()
         {
             Gizmos.color = Color.red;
-            Gizmos.DrawWireSphere(transform.position, 0.5f);
+            Gizmos.DrawWireSphere(transform.position, 0.3f);
         }
 
         #endregion
@@ -233,14 +245,13 @@ namespace PlayerSetting
             SetPlayerState(PlayerState.IDLE);
         }
         
-        struct PlayerAnimatorHash
-        {
-            public int boolMove;
-            public int boolFall;
-            public int triggerDeath;
+    }
+    public struct PlayerAnimatorHash
+    {
+        public int boolMove;
+        public int boolFall;
+        public int triggerDeath;
     
-        }
-        
     }
 }
 

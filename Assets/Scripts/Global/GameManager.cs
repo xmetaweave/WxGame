@@ -1,5 +1,6 @@
 ﻿using System;
 using CameraSetting;
+using PlayerSetting;
 using PostProcess;
 using ScritpableObject;
 using UnityEngine;
@@ -29,14 +30,15 @@ namespace Global
         {
             eventOSContainer.sceneLoadEventSo.SceneLoadDoneEvent += OnSceneLoadDone;
             eventOSContainer.gameStartEventSo.OnEventRaised += OnGameStart;
+            eventOSContainer.reachTargetEventOS.OnEventRaised += OnReachTarget;
             
-              
         }
         
         private void OnDisable()
         {
             eventOSContainer.sceneLoadEventSo.SceneLoadDoneEvent -= OnSceneLoadDone;
             eventOSContainer.gameStartEventSo.OnEventRaised -= OnGameStart;
+            eventOSContainer.reachTargetEventOS.OnEventRaised -= OnReachTarget;
         }
 
         private void Update()
@@ -57,15 +59,21 @@ namespace Global
 
         private void OnSceneLoadDone(GameSceneSO currentLoadScene)
         {
-            player.position = currentLoadScene.startPosition;
-            player.rotation = Quaternion.Euler(currentLoadScene.startRotation);
+            Transform startPoint = GameObject.FindWithTag("Respawn").transform;
+            player.position = startPoint.position;
+            player.rotation = startPoint.rotation;
             player.gameObject.SetActive(true);
 
             mainCamera.GetComponent<PostProcessHeightFog1>().material = currentLoadScene.fogMaterial;
-            mainCamera.GetComponent<CameraFollow>().QuicklyMoveToTarget();
+            mainCamera.GetComponent<CameraFollow>().ResetCamera();
         }
         
+        private void OnReachTarget()
+        {
+            mainCamera.GetComponent<CameraFollow>().SetFinished(true);
+            player.GetComponent<PlayerMoment>().SetPlayerState(PlayerState.WAIT);
+            Time.timeScale = 1;
+        }
         
-       
     }
 }

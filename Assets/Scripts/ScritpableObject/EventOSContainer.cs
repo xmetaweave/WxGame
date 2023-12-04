@@ -1,4 +1,5 @@
 ﻿using UnityEngine;
+using UnityEngine.Serialization;
 
 namespace ScritpableObject
 {
@@ -9,6 +10,6 @@ namespace ScritpableObject
         public SceneLoadEventSO sceneLoadEventSo;
         public VoidEventSO gameStartEventSo;
         public VoidEventSO playerDeadEventSo;
-        public VoidEventSO ReachTargetEventOS;
+        public VoidEventSO reachTargetEventOS;
     }
 }
