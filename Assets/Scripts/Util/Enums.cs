@@ -19,6 +19,7 @@
         RUN,
         DEAD,
         FALL,
+        WAIT,
         NONE,
     }
 }

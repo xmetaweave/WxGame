@@ -28,21 +28,23 @@ namespace Global
         EventOSContainer eventOSContainer;
         [Inject]
         GameManager gameManager;
-        private void Awake()
-        {
-            OnLoadScene(FirstScene);
-        }
-        
+
         private void OnEnable()
         {
             eventOSContainer.sceneLoadEventSo.SceneLoadRequestEvent += OnLoadScene;
+            
         }
         
         private void OnDisable()
         {
             eventOSContainer.sceneLoadEventSo.SceneLoadRequestEvent -= OnLoadScene;
         }
-        
+
+        private void Start()
+        {
+            LoadFirstScene();
+        }
+
         public void OnLoadScene(GameSceneSO gameSceneSO,bool _fadeScreen = true)
         {
             if (isLoading)
@@ -116,6 +118,11 @@ namespace Global
                 curIndex = 0;
             }
             OnLoadScene(GamePlayScenes[curIndex]);
+        }
+        
+        public void LoadFirstScene()
+        {
+            OnLoadScene(FirstScene);
         }
 
     }

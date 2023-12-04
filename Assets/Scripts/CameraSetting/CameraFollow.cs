@@ -24,6 +24,11 @@ namespace CameraSetting
             this.transform.rotation = Quaternion.Slerp(this.transform.rotation, angel, speed * Time.deltaTime);
 
         }
+        
+        public void QuicklyMoveToTarget()
+        {
+            this.transform.position = pos;
+        }
 
 
     }

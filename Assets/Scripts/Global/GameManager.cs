@@ -1,4 +1,5 @@
 ﻿using System;
+using CameraSetting;
 using PostProcess;
 using ScritpableObject;
 using UnityEngine;
@@ -28,6 +29,8 @@ namespace Global
         {
             eventOSContainer.sceneLoadEventSo.SceneLoadDoneEvent += OnSceneLoadDone;
             eventOSContainer.gameStartEventSo.OnEventRaised += OnGameStart;
+            
+              
         }
         
         private void OnDisable()
@@ -59,6 +62,7 @@ namespace Global
             player.gameObject.SetActive(true);
 
             mainCamera.GetComponent<PostProcessHeightFog1>().material = currentLoadScene.fogMaterial;
+            mainCamera.GetComponent<CameraFollow>().QuicklyMoveToTarget();
         }
         
         

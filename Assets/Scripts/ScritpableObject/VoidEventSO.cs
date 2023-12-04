@@ -3,8 +3,8 @@ using UnityEngine.Events;
 
 namespace ScritpableObject
 {
-    [CreateAssetMenu(menuName = "Event/GameStartEventSO", order = 0)]
-    public class GameStartEventSO : ScriptableObject
+    [CreateAssetMenu(menuName = "Event/VoidEventSO", order = 0)]
+    public class VoidEventSO : ScriptableObject
     {
         public UnityAction OnEventRaised;
         

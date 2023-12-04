@@ -7,7 +7,8 @@ namespace ScritpableObject
     {
         public FadeEventSO fadeEventSo;
         public SceneLoadEventSO sceneLoadEventSo;
-        public GameStartEventSO gameStartEventSo;
-        public PlayerDeadEventSO playerDeadEventSo;
+        public VoidEventSO gameStartEventSo;
+        public VoidEventSO playerDeadEventSo;
+        public VoidEventSO ReachTargetEventOS;
     }
 }

@@ -68,15 +68,31 @@ namespace PlayerSetting
             _playerAnimatorHash.triggerDeath = Animator.StringToHash("death");
         }
     
-        void Start()
+        // void Start()
+        // {
+        //     _virtualJoystick.SetDirEvent += MoveDirection;
+        //     _virtualJoystick.StopSetDirEvent += StopSetDirEvent;
+        // }
+
+        private void OnEnable()
         {
             _virtualJoystick.SetDirEvent += MoveDirection;
             _virtualJoystick.StopSetDirEvent += StopSetDirEvent;
+            eventOsContainer.sceneLoadEventSo.SceneLoadRequestEvent += SetPlayerToWait;
+            eventOsContainer.sceneLoadEventSo.SceneLoadDoneEvent += SetPlayerToPlay;
         }
-    
+        
+        private void OnDisable()
+        {
+            _virtualJoystick.SetDirEvent -= MoveDirection;
+            _virtualJoystick.StopSetDirEvent -= StopSetDirEvent;
+            eventOsContainer.sceneLoadEventSo.SceneLoadRequestEvent -= SetPlayerToWait;
+            eventOsContainer.sceneLoadEventSo.SceneLoadDoneEvent -= SetPlayerToPlay;
+        }
+
         private void Update()
         {
-            if (playerState == PlayerState.DEAD)
+            if (playerState == PlayerState.DEAD || playerState == PlayerState.WAIT)
                 return;
 
             CheckIsGround();
@@ -133,7 +149,7 @@ namespace PlayerSetting
                 return;
       
             moveDir = Vector2.zero;
-            if (!sceneLoader.isLoading && _isGround)
+            if (_isGround )
             { 
                 Time.timeScale = 0f;
                 _animator.updateMode = AnimatorUpdateMode.UnscaledTime;
@@ -151,7 +167,7 @@ namespace PlayerSetting
             _animator.SetLayerWeight(1,0);
             Time.timeScale = 1f;
             SetPlayerState(PlayerState.DEAD);
-            eventOsContainer.playerDeadEventSo?.RaiseEvent();
+            eventOsContainer.playerDeadEventSo.RaiseEvent();
             GetComponent<Rigidbody>().isKinematic = true;
             
         }
@@ -207,6 +223,16 @@ namespace PlayerSetting
            
         }
         
+        public void SetPlayerToWait(GameSceneSO gameSceneSO,bool fadeScreen)
+        {
+            SetPlayerState(PlayerState.WAIT);
+        }
+        
+        public void SetPlayerToPlay(GameSceneSO gameSceneSO)
+        {
+            SetPlayerState(PlayerState.IDLE);
+        }
+        
         struct PlayerAnimatorHash
         {
             public int boolMove;
@@ -214,8 +240,6 @@ namespace PlayerSetting
             public int triggerDeath;
     
         }
-    
-       
         
     }
 }
